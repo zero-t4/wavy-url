@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function loop() {
+                var i, n, s = '';
+
+                for (i = 0; i < 10; i++) {
+                    n = Math.floor(Math.sin((performance.now()/200) + (i/2)) * 4) + 4;
+
+                    s += String.fromCharCode(0x2581 + n);
+                }
+
+                window.history.pushState('state', s, s);
+            }
+
+            function start () {
+              loop();
+              setTimeout(start, 50);
+            }
+
+            window.addEventListener('load', start);
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    </body>
+</html>
+
+
